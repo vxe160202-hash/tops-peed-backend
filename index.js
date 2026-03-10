@@ -11,6 +11,7 @@ import modificationRoutes from './routes/modificationRoutes.js';
 import recommendationRoutes from './routes/recommendationRoutes.js';
 import configuratorRoutes from './routes/configuratorRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
+import visitorRoutes from './routes/visitorRoutes.js';
 
 dotenv.config();
 
@@ -67,6 +68,7 @@ app.use('/api/modifications', modificationRoutes);
 app.use('/api/recommendations', recommendationRoutes);
 app.use('/api/configurator', configuratorRoutes);
 app.use('/api/service', serviceRoutes);
+app.use('/api/visitors', visitorRoutes);
 
 // معالج الأخطاء
 app.use(errorHandler);
