@@ -5,7 +5,7 @@ import {
   getAllVisitors,
   deleteOldVisitors,
 } from '../controllers/visitorController.js';
-import { authenticateToken } from '../middleware/auth.js';
+import { authMiddleware } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -13,8 +13,8 @@ const router = express.Router();
 router.post('/track', trackVisitor);
 
 // Admin routes - require authentication
-router.get('/admin/stats', authenticateToken, getVisitorStats);
-router.get('/admin/all', authenticateToken, getAllVisitors);
-router.delete('/admin/cleanup', authenticateToken, deleteOldVisitors);
+router.get('/admin/stats', authMiddleware, getVisitorStats);
+router.get('/admin/all', authMiddleware, getAllVisitors);
+router.delete('/admin/cleanup', authMiddleware, deleteOldVisitors);
 
 export default router;
